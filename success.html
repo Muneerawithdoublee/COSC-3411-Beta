@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Netflix</title>
+
+<!-- Font Awesome icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{
+  margin:0;
+  background:#141414;
+  color:white;
+  font-family:Arial, sans-serif;
+}
+
+/* navbar */
+.navbar{
+  height:65px;
+  background:#000;
+  display:flex;
+  align-items:center;
+  padding:0 35px;
+  gap:25px;
+}
+
+.logo{
+  width:110px;
+  cursor:pointer;
+}
+
+.menu span{
+  margin-right:18px;
+  color:#aaa;
+  font-size:14px;
+  cursor:pointer;
+}
+
+.menu .active{
+  color:white;
+  border-bottom:2px solid #e50914;
+  padding-bottom:5px;
+}
+
+.right{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.icon{
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* profile */
+.profile{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  cursor:pointer;
+}
+
+.profile img{
+  width:36px;
+  height:36px;
+  border-radius:4px;
+}
+
+.dropdown{
+  display:none;
+  position:absolute;
+  top:45px;
+  right:0;
+  background:#222;
+  padding:10px 18px;
+  border-radius:4px;
+  min-width:90px;
+  white-space:nowrap;
+  z-index:50;
+}
+
+/* section */
+.section{
+  padding:25px 35px;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.section h3{
+  margin:0 0 12px 0;
+}
+
+/* indicator */
+.indicator{
+  display:flex;
+  gap:5px;
+}
+
+.indicator span{
+  width:28px;
+  height:3px;
+  background:#555;
+}
+
+.indicator .active-line{
+  background:white;
+}
+
+/* slider */
+.slider{
+  display:flex;
+  align-items:center;
+}
+
+.arrow{
+  width:35px;
+  height:260px;
+  background:rgba(0,0,0,0.5);
+  border:none;
+  color:white;
+  font-size:38px;
+  cursor:pointer;
+  position:relative;
+  z-index:200;
+}
+
+.cards{
+  display:flex;
+  gap:15px;
+}
+
+/* card */
+.card{
+  width:220x;
+  height:130px;
+  position:relative;
+  cursor:pointer;
+  transition:0.3s;
+  transform-origin: center bottom;
+}
+
+.poster{
+  width:220px;
+  height:130px;
+  object-fit:cover;
+  background:black;
+  border-radius:5px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:scale(1.25);
+  z-index:50;
+}
+
+.card:hover .poster{
+  filter:brightness(45%);
+}
+
+/* overlay */
+.netflix-n{
+  position:absolute;
+  top:6px;
+  left:8px;
+  width:35px;
+  z-index:5;
+  pointer-events:none;
+}
+
+.top10{
+  position:absolute;
+  top:0;
+  right:6px;
+  width:43px;
+  z-index:5;
+  pointer-events:none;
+}
+
+/* hover info */
+.info{
+  display:none;
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:10px;
+  font-size:12px;
+  line-height:1.3;
+  z-index:6;
+}
+
+.card:hover .info{
+  display:block;
+}
+
+.title{
+  font-size:14px;
+  color:white;
+  font-weight:bold;
+}
+
+.meta{
+  color:#aaa;
+  font-size:11px;
+  margin-top:3px;
+}
+
+.desc{
+  color:#ccc;
+  font-size:11px;
+  margin-top:5px;
+}
+
+/* progress */
+.progress{
+  height:5px;
+  background:#555;
+  margin-top:7px;
+  border-radius:4px;
+}
+
+.progress-fill{
+  height:5px;
+  background:#e50914;
+  border-radius:4px;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- navbar -->
+<div class="navbar">
+
+  <img class="logo" src="logo.svg" onclick="msg()">
+
+  <div class="menu">
+    <span class="active" onclick="msg()">Home</span>
+    <span onclick="msg()">TV Shows</span>
+    <span onclick="msg()">Movies</span>
+    <span onclick="msg()">New & Popular</span>
+    <span onclick="msg()">My List</span>
+  </div>
+
+  <div class="right">
+    <i class="fa-solid fa-magnifying-glass icon" onclick="msg()"></i>
+    <i class="fa-solid fa-bell icon" onclick="msg()"></i>
+
+    <div class="profile" onclick="toggleDropdown()">
+      <img src="images/user.jpeg">
+      <i class="fa-solid fa-caret-down icon"></i>
+
+      <div class="dropdown" id="dropdown">
+        <div onclick="msg()">Log Out</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- movies -->
+<div class="section">
+  <div class="section-head">
+    <h3>Top 10 Movies</h3>
+    <div class="indicator" id="movieIndicator"></div>
+  </div>
+
+  <div class="slider">
+    <button class="arrow" id="moviesLeft" onclick="moveRow('movies', -1)">‹</button>
+    <div class="cards" id="movies"></div>
+    <button class="arrow" id="moviesRight" onclick="moveRow('movies', 1)">›</button>
+  </div>
+</div>
+
+<!-- series -->
+<div class="section">
+  <div class="section-head">
+    <h3>Top 10 Series</h3>
+    <div class="indicator" id="seriesIndicator"></div>
+  </div>
+
+  <div class="slider">
+    <button class="arrow" id="seriesLeft" onclick="moveRow('series', -1)">‹</button>
+    <div class="cards" id="series"></div>
+    <button class="arrow" id="seriesRight" onclick="moveRow('series', 1)">›</button>
+  </div>
+</div>
+
+<!-- continue watching -->
+<div class="section">
+  <div class="section-head">
+    <h3>Continue Watching</h3>
+  </div>
+
+  <div class="cards">
+
+    <div class="card" onclick="msg()">
+      <img class="poster" src="images/continue1.jpeg">
+      <div class="info">
+        <div class="title">Iron Man 3</div>
+        <div class="meta">Movie • 2013 • Superhero</div>
+        <div class="desc">Tony Stark faces a new enemy while rebuilding his confidence.</div>
+      </div>
+      <div class="progress"><div class="progress-fill" style="width:40%"></div></div>
+    </div>
+
+    <div class="card" onclick="msg()">
+      <img class="poster" src="images/continue2.jpeg">
+      <div class="info">
+        <div class="title">Doctor Strange in the Multiverse of Madness</div>
+        <div class="meta">Movie • 2022 • Fantasy</div>
+        <div class="desc">Doctor Strange explores dangerous realities across the multiverse.</div>
+      </div>
+      <div class="progress"><div class="progress-fill" style="width:70%"></div></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+let movies = [
+  {img:"movie1.jpeg", title:"Avengers: Endgame", meta:"Movie • 2019 • Action", desc:"The Avengers unite for one final battle to restore the universe."},
+  {img:"movie2.jpeg", title:"Spider-Man: No Way Home", meta:"Movie • 2021 • Superhero", desc:"Peter Parker faces visitors from other worlds after a spell goes wrong."},
+  {img:"movie3.jpeg", title:"Joker", meta:"Movie • 2019 • Drama", desc:"A troubled man slowly transforms into Gotham’s most infamous villain."},
+  {img:"movie4.jpeg", title:"Ad Astra", meta:"Movie • 2019 • Sci-Fi", desc:"An astronaut travels through space to uncover the truth about his father."},
+  {img:"movie5.jpeg", title:"The Dark Knight", meta:"Movie • 2008 • Action", desc:"Batman faces the Joker in a dangerous fight for Gotham City."},
+  {img:"movie6.jpeg", title:"Wonder Woman 1984", meta:"Movie • 2020 • Superhero", desc:"Diana faces new enemies while protecting the world from chaos."},
+  {img:"movie7.jpeg", title:"Titanic", meta:"Movie • 1997 • Romance", desc:"A love story unfolds during the tragic voyage of the Titanic."},
+  {img:"movie8.jpeg", title:"Frozen II", meta:"Movie • 2019 • Animation", desc:"Elsa and Anna journey beyond Arendelle to discover the past."},
+  {img:"movie9.jpeg", title:"Sonic the Hedgehog 2", meta:"Movie • 2022 • Adventure", desc:"Sonic teams up with Tails to stop a powerful new threat."},
+  {img:"movie10.jpeg", title:"Black Panther", meta:"Movie • 2018 • Superhero", desc:"T’Challa returns to Wakanda and rises as the Black Panther."}
+];
+
+let series = [
+  {img:"series1.jpeg", title:"Money Heist", meta:"TV Series • 2017 • Crime", desc:"A group of robbers follow a mastermind’s plan during a major heist."},
+  {img:"series2.jpeg", title:"Squid Game", meta:"TV Series • 2021 • Thriller", desc:"Contestants enter deadly games for a chance to win a huge prize."},
+  {img:"series3.jpeg", title:"Friends", meta:"TV Series • 1994 • Comedy", desc:"Six friends share life, love, and funny moments in New York City."},
+  {img:"series4.jpeg", title:"Stranger Things", meta:"TV Series • 2016 • Sci-Fi", desc:"A group of kids face strange events and secrets in their small town."},
+  {img:"series5.jpeg", title:"Supergirl", meta:"TV Series • 2015 • Superhero", desc:"Kara Danvers embraces her powers and becomes a hero."},
+  {img:"series6.jpeg", title:"Loki", meta:"TV Series • 2021 • Marvel", desc:"Loki is pulled into a timeline adventure full of mystery and chaos."},
+  {img:"series7.jpeg", title:"The Flash", meta:"TV Series • 2014 • Superhero", desc:"Barry Allen uses super speed to protect his city from danger."},
+  {img:"series8.jpeg", title:"Wednesday", meta:"TV Series • 2022 • Mystery", desc:"Wednesday Addams investigates secrets at Nevermore Academy."},
+  {img:"series9.jpeg", title:"Anne with an E", meta:"TV Series • 2017 • Drama", desc:"An imaginative orphan changes the lives of everyone around her."},
+  {img:"series10.jpeg", title:"The Queen's Gambit", meta:"Limited Series • 2020 • Drama", desc:"A young chess prodigy rises through the competitive chess world."}
+];
+
+let position = {
+  movies: 0,
+  series: 0
+};
+
+let maxPosition = 5;
+
+function showRow(type){
+  let container = document.getElementById(type);
+  let list = type === "movies" ? movies : series;
+  let start = position[type];
+
+  container.innerHTML = "";
+
+  for(let i = start; i < start + 5; i++){
+    container.innerHTML += `
+      <div class="card" onclick="msg()">
+        <img class="poster" src="images/${list[i].img}">
+        <img class="netflix-n" src="images/netflix-n.png">
+        <img class="top10" src="images/top10.png">
+
+        <div class="info">
+          <div class="title">${list[i].title}</div>
+          <div class="meta">${list[i].meta}</div>
+          <div class="desc">${list[i].desc}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  updateIndicator(type);
+  updateArrows(type);
+}
+
+function moveRow(type, direction){
+  position[type] = position[type] + direction;
+
+  if(position[type] < 0){
+    position[type] = 0;
+  }
+
+  if(position[type] > maxPosition){
+    position[type] = maxPosition;
+  }
+
+  showRow(type);
+}
+
+function updateIndicator(type){
+  let indicatorId = type === "movies" ? "movieIndicator" : "seriesIndicator";
+  let indicator = document.getElementById(indicatorId);
+
+  indicator.innerHTML = "";
+
+  for(let i = 0; i <= maxPosition; i++){
+    if(i === position[type]){
+      indicator.innerHTML += `<span class="active-line"></span>`;
+    }else{
+      indicator.innerHTML += `<span></span>`;
+    }
+  }
+}
+
+function updateArrows(type){
+  let leftArrow = document.getElementById(type + "Left");
+  let rightArrow = document.getElementById(type + "Right");
+
+  if(position[type] === 0){
+    leftArrow.style.visibility = "hidden";
+  }else{
+    leftArrow.style.visibility = "visible";
+  }
+
+  if(position[type] === maxPosition){
+    rightArrow.style.visibility = "hidden";
+  }else{
+    rightArrow.style.visibility = "visible";
+  }
+}
+
+function toggleDropdown(){
+  let menu = document.getElementById("dropdown");
+
+  if(menu.style.display === "block"){
+    menu.style.display = "none";
+  }else{
+    menu.style.display = "block";
+  }
+}
+
+function msg(){
+  alert("This is a phishing simulation. Never enter your password or suspicious data.");
+}
+
+showRow("movies");
+showRow("series");
+</script>
+
+</body>
+</html>
