@@ -29,6 +29,7 @@ This project was developed for educational, cybersecurity awareness, and control
 
 ## Project Structure
 
+```text
 COSC-3411-Beta/
 │
 ├── assets/
@@ -43,9 +44,7 @@ COSC-3411-Beta/
 ├── beta-phish.sh
 ├── run-server.sh
 └── README.md
-
----
-
+```
 ## Requirements
 
 - PHP
