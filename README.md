@@ -16,13 +16,24 @@ This project was developed for educational, cybersecurity awareness, and control
 
 ---
 
+## Features
+
+- Educational phishing awareness simulation
+- PHP local server support
+- Bash automation scripts
+- Responsive front-end interface
+- Logging demonstration
+- Controlled lab environment testing
+
+---
+
 ## Project Files
 
 - index.html
 - post.php
 - usernames.txt
 - beta-phish.sh
-- run-server.sh
+- start-server.sh
 - success.html
 
 ---
@@ -42,14 +53,18 @@ COSC-3411-Beta/
 ├── success.html
 ├── usernames.txt
 ├── beta-phish.sh
-├── run-server.sh
+├── start-server.sh
 └── README.md
 ```
+
+---
+
 ## Requirements
 
 - PHP
 - Bash
 - Linux / Kali Linux
+- Windows (Optional)
 
 ---
 
@@ -57,3 +72,54 @@ COSC-3411-Beta/
 
 ```bash
 sudo apt install php
+```
+
+```bash
+chmod +x beta-phish.sh
+```
+
+```bash
+./beta-phish.sh
+```
+
+---
+
+## Run Local Server
+
+```bash
+chmod +x start-server.sh
+```
+
+```bash
+./start-server.sh
+```
+
+---
+
+## Run on Windows
+
+```bash
+"C:\php\php.exe" -S 127.0.0.1:8080
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8080
+```
+
+---
+
+## Notes
+
+This project is only for cybersecurity awareness and educational demonstrations in a controlled lab environment.
+
+No real credential collection, unauthorized access, or malicious deployment is intended.
+
+---
+
+## Disclaimer
+
+This repository is intended strictly for educational, awareness, and authorized lab simulation purposes only.
+
+Any misuse of this project outside controlled environments is strictly prohibited.
