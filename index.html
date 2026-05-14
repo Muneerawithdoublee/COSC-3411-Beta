@@ -5,10 +5,13 @@
       Member 1: (moneera aldossary)Front-End & Social Engineering Lead
       Task: Designing a high-fidelity replica of the Netflix login page to ensure victim trust.
     -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix</title>
+
     <style>
+
         body, html {
             height: 100%;
             margin: 0;
@@ -22,8 +25,16 @@
            - Applied a linear-gradient overlay to ensure the login box contrast matches the real site.
         */
         .background-container {
-            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%), 
-                              url('hero-img.jpg');
+
+            background-image:
+                linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0.8) 0,
+                    rgba(0, 0, 0, 0) 60%,
+                    rgba(0, 0, 0, 0.8) 100%
+                ),
+                url('assets/images/hero-img.jpg');
+
             background-size: cover;
             background-position: center;
             height: 100%;
@@ -49,9 +60,8 @@
         }
 
         /* 
-           Phishing Box Design:
+           Educational Demo Box Design:
            Semi-transparent background (rgba) to maintain the aesthetic 'Netflix look'.
-       
         */
         .login-box {
             background-color: rgba(0, 0, 0, 0.75);
@@ -61,7 +71,12 @@
             box-sizing: border-box;
         }
 
-        h1 { color: #fff; font-size: 32px; font-weight: bold; margin-bottom: 28px; }
+        h1 {
+            color: #fff;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 28px;
+        }
 
         input {
             width: 100%;
@@ -76,7 +91,7 @@
             font-size: 16px;
         }
 
-        /* Netflix signature button  to drive the 'Sign In' action */
+        /* Netflix signature button styling */
         button {
             width: 100%;
             padding: 16px;
@@ -104,53 +119,91 @@
             font-size: 16px;
         }
 
-        .footer-info a { color: #fff; text-decoration: none; }
-        
+        .footer-info a {
+            color: #fff;
+            text-decoration: none;
+        }
+
         .captcha {
             font-size: 13px;
             color: #8c8c8c;
             margin-top: 15px;
         }
+
     </style>
 </head>
+
 <body>
 
     <div class="background-container">
+
         <div class="header">
-            <img src="logo.svg" alt="Netflix" class="logo">
+            <img src="assets/images/logo.svg" alt="Netflix" class="logo">
         </div>
 
         <div class="login-wrapper">
+
             <div class="login-box">
+
                 <h1>Sign In</h1>
-                
+
                 <!-- 
-                     Credential Harvesting Mechanism:
-                     - Configured the form to use POST method for stealthy data transfer.
-                     - action="post.php" links the UI to the backend interception script.
+                     Educational Awareness Form:
+                     - This form is for front-end awareness and UI demonstration only.
+                     - No credentials are stored or transmitted.
                 -->
-                <form action="post.php" method="POST">
-                    <!-- 'name' attributes are crucial for the PHP backend to capture specific values -->
-                    <input type="text" name="username" placeholder="Email or phone number" required>
-                    <input type="password" name="password" placeholder="Password" required>
-                    <button type="submit">Sign In</button>
-                    
+                <form>
+
+                    <input
+                        type="text"
+                        placeholder="Email or phone number"
+                        required
+                    >
+
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        required
+                    >
+
+                    <button type="submit">
+                        Sign In
+                    </button>
+
                     <div class="options">
-                        <label><input type="checkbox" checked> Remember me</label>
+
+                        <label>
+                            <input type="checkbox" checked>
+                            Remember me
+                        </label>
+
                         <span>Need help?</span>
+
                     </div>
+
                 </form>
 
                 <div class="footer-info">
-                    New to Netflix? <a href="#">Sign up now.</a>
+                    New to Netflix?
+                    <a href="#">Sign up now.</a>
                 </div>
-                
+
                 <!-- Replicated reCAPTCHA text to mimic legitimate security features -->
                 <div class="captcha">
-                    This page is protected by Google reCAPTCHA to ensure you're not a bot. <span style="color: #0071eb; cursor: pointer;">Learn more.</span>
+
+                    This page is protected by Google reCAPTCHA
+                    to ensure you're not a bot.
+
+                    <span style="color: #0071eb; cursor: pointer;">
+                        Learn more.
+                    </span>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
 
 </body>
