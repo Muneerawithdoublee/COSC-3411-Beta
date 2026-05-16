@@ -244,7 +244,7 @@ body{
 <!-- navbar -->
 <div class="navbar">
 
-  <img class="logo" src="logo.svg" onclick="msg()">
+  <img class="logo" src="assets/images/netflix-n.png" onclick="msg()">
 
   <div class="menu">
     <span class="active" onclick="msg()">Home</span>
@@ -373,7 +373,7 @@ function showRow(type){
   for(let i = start; i < start + 5; i++){
     container.innerHTML += `
       <div class="card" onclick="msg()">
-        <img class="poster" src="images/${list[i].img}">
+        <img class="poster" src="${list[i].img}">
         <img class="netflix-n" src="assets/images/netflix-n.png">
         <img class="top10" src="assets/images/top10.png">
 
