@@ -259,7 +259,7 @@ body{
     <i class="fa-solid fa-bell icon" onclick="msg()"></i>
 
     <div class="profile" onclick="toggleDropdown()">
-      <img src="images/user.jpeg">
+      <img src="assets/images/user.jpeg">
       <i class="fa-solid fa-caret-down icon"></i>
 
       <div class="dropdown" id="dropdown">
@@ -307,7 +307,7 @@ body{
   <div class="cards">
 
     <div class="card" onclick="msg()">
-      <img class="poster" src="images/continue1.jpeg">
+      <img class="poster" src="assets/images/continue1.jpeg">
       <div class="info">
         <div class="title">Iron Man 3</div>
         <div class="meta">Movie • 2013 • Superhero</div>
@@ -317,7 +317,7 @@ body{
     </div>
 
     <div class="card" onclick="msg()">
-      <img class="poster" src="images/continue2.jpeg">
+      <img class="poster" src="assets/images/continue2.jpeg">
       <div class="info">
         <div class="title">Doctor Strange in the Multiverse of Madness</div>
         <div class="meta">Movie • 2022 • Fantasy</div>
@@ -331,29 +331,29 @@ body{
 
 <script>
 let movies = [
-  {img:"movie1.jpeg", title:"Avengers: Endgame", meta:"Movie • 2019 • Action", desc:"The Avengers unite for one final battle to restore the universe."},
-  {img:"movie2.jpeg", title:"Spider-Man: No Way Home", meta:"Movie • 2021 • Superhero", desc:"Peter Parker faces visitors from other worlds after a spell goes wrong."},
-  {img:"movie3.jpeg", title:"Joker", meta:"Movie • 2019 • Drama", desc:"A troubled man slowly transforms into Gotham’s most infamous villain."},
-  {img:"movie4.jpeg", title:"Ad Astra", meta:"Movie • 2019 • Sci-Fi", desc:"An astronaut travels through space to uncover the truth about his father."},
-  {img:"movie5.jpeg", title:"The Dark Knight", meta:"Movie • 2008 • Action", desc:"Batman faces the Joker in a dangerous fight for Gotham City."},
-  {img:"movie6.jpeg", title:"Wonder Woman 1984", meta:"Movie • 2020 • Superhero", desc:"Diana faces new enemies while protecting the world from chaos."},
-  {img:"movie7.jpeg", title:"Titanic", meta:"Movie • 1997 • Romance", desc:"A love story unfolds during the tragic voyage of the Titanic."},
-  {img:"movie8.jpeg", title:"Frozen II", meta:"Movie • 2019 • Animation", desc:"Elsa and Anna journey beyond Arendelle to discover the past."},
-  {img:"movie9.jpeg", title:"Sonic the Hedgehog 2", meta:"Movie • 2022 • Adventure", desc:"Sonic teams up with Tails to stop a powerful new threat."},
-  {img:"movie10.jpeg", title:"Black Panther", meta:"Movie • 2018 • Superhero", desc:"T’Challa returns to Wakanda and rises as the Black Panther."}
+  {img:"assets/images/movie1.jpeg", title:"Avengers: Endgame", meta:"Movie • 2019 • Action", desc:"The Avengers unite for one final battle to restore the universe."},
+  {img:"assets/images/movie2.jpeg", title:"Spider-Man: No Way Home", meta:"Movie • 2021 • Superhero", desc:"Peter Parker faces visitors from other worlds after a spell goes wrong."},
+  {img:"assets/images/movie3.jpeg", title:"Joker", meta:"Movie • 2019 • Drama", desc:"A troubled man slowly transforms into Gotham’s most infamous villain."},
+  {img:"assets/images/movie4.jpeg", title:"Ad Astra", meta:"Movie • 2019 • Sci-Fi", desc:"An astronaut travels through space to uncover the truth about his father."},
+  {img:"assets/images/movie5.jpeg", title:"The Dark Knight", meta:"Movie • 2008 • Action", desc:"Batman faces the Joker in a dangerous fight for Gotham City."},
+  {img:"assets/images/movie6.jpeg", title:"Wonder Woman 1984", meta:"Movie • 2020 • Superhero", desc:"Diana faces new enemies while protecting the world from chaos."},
+  {img:"assets/images/movie7.jpeg", title:"Titanic", meta:"Movie • 1997 • Romance", desc:"A love story unfolds during the tragic voyage of the Titanic."},
+  {img:"assets/images/movie8.jpeg", title:"Frozen II", meta:"Movie • 2019 • Animation", desc:"Elsa and Anna journey beyond Arendelle to discover the past."},
+  {img:"assets/images/movie9.jpeg", title:"Sonic the Hedgehog 2", meta:"Movie • 2022 • Adventure", desc:"Sonic teams up with Tails to stop a powerful new threat."},
+  {img:"assets/images/movie10.jpeg", title:"Black Panther", meta:"Movie • 2018 • Superhero", desc:"T’Challa returns to Wakanda and rises as the Black Panther."}
 ];
 
 let series = [
-  {img:"series1.jpeg", title:"Money Heist", meta:"TV Series • 2017 • Crime", desc:"A group of robbers follow a mastermind’s plan during a major heist."},
-  {img:"series2.jpeg", title:"Squid Game", meta:"TV Series • 2021 • Thriller", desc:"Contestants enter deadly games for a chance to win a huge prize."},
-  {img:"series3.jpeg", title:"Friends", meta:"TV Series • 1994 • Comedy", desc:"Six friends share life, love, and funny moments in New York City."},
-  {img:"series4.jpeg", title:"Stranger Things", meta:"TV Series • 2016 • Sci-Fi", desc:"A group of kids face strange events and secrets in their small town."},
-  {img:"series5.jpeg", title:"Supergirl", meta:"TV Series • 2015 • Superhero", desc:"Kara Danvers embraces her powers and becomes a hero."},
-  {img:"series6.jpeg", title:"Loki", meta:"TV Series • 2021 • Marvel", desc:"Loki is pulled into a timeline adventure full of mystery and chaos."},
-  {img:"series7.jpeg", title:"The Flash", meta:"TV Series • 2014 • Superhero", desc:"Barry Allen uses super speed to protect his city from danger."},
-  {img:"series8.jpeg", title:"Wednesday", meta:"TV Series • 2022 • Mystery", desc:"Wednesday Addams investigates secrets at Nevermore Academy."},
-  {img:"series9.jpeg", title:"Anne with an E", meta:"TV Series • 2017 • Drama", desc:"An imaginative orphan changes the lives of everyone around her."},
-  {img:"series10.jpeg", title:"The Queen's Gambit", meta:"Limited Series • 2020 • Drama", desc:"A young chess prodigy rises through the competitive chess world."}
+  {img:"assets/images/series1.jpeg", title:"Money Heist", meta:"TV Series • 2017 • Crime", desc:"A group of robbers follow a mastermind’s plan during a major heist."},
+  {img:"assets/images/series2.jpeg", title:"Squid Game", meta:"TV Series • 2021 • Thriller", desc:"Contestants enter deadly games for a chance to win a huge prize."},
+  {img:"assets/images/series3.jpeg", title:"Friends", meta:"TV Series • 1994 • Comedy", desc:"Six friends share life, love, and funny moments in New York City."},
+  {img:"assets/images/series4.jpeg", title:"Stranger Things", meta:"TV Series • 2016 • Sci-Fi", desc:"A group of kids face strange events and secrets in their small town."},
+  {img:"assets/images/series5.jpeg", title:"Supergirl", meta:"TV Series • 2015 • Superhero", desc:"Kara Danvers embraces her powers and becomes a hero."},
+  {img:"assets/images/series6.jpeg", title:"Loki", meta:"TV Series • 2021 • Marvel", desc:"Loki is pulled into a timeline adventure full of mystery and chaos."},
+  {img:"assets/images/series7.jpeg", title:"The Flash", meta:"TV Series • 2014 • Superhero", desc:"Barry Allen uses super speed to protect his city from danger."},
+  {img:"assets/images/series8.jpeg", title:"Wednesday", meta:"TV Series • 2022 • Mystery", desc:"Wednesday Addams investigates secrets at Nevermore Academy."},
+  {img:"assets/images/series9.jpeg", title:"Anne with an E", meta:"TV Series • 2017 • Drama", desc:"An imaginative orphan changes the lives of everyone around her."},
+  {img:"assets/images/series10.jpeg", title:"The Queen's Gambit", meta:"Limited Series • 2020 • Drama", desc:"A young chess prodigy rises through the competitive chess world."}
 ];
 
 let position = {
